@@ -93,7 +93,7 @@ module.exports = {
     externals: {
         'AMap': 'AMap'
     },
-    devtool: '#eval',//cheap-module-eval-source-map | cheap-module-source-map | eval | eval-source-map
+    devtool: '#cheap-module-eval-source-map',//cheap-module-eval-source-map | cheap-module-source-map | eval | eval-source-map
     devServer: {
         historyApiFallback: true,
         noInfo: true,
