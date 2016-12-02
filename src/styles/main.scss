@@ -1,0 +1,31 @@
+@import "base";
+@import "assets";
+
+
+//来源:http://www.w3cplus.com/preprocessor/sass-guidelin-part-4.html
+//https://sass-guidelin.es/#architecture
+
+@import 'abstracts';
+
+@import "vendors";
+
+@import 'base/reset';
+@import 'base/typography';
+
+//@import 'layout/navigation';
+//@import 'layout/grid';
+//@import 'layout/header';
+//@import 'layout/footer';
+//@import 'layout/sidebar';
+//@import 'layout/forms';
+
+//@import 'components/buttons';
+//@import 'components/carousel';
+//@import 'components/cover';
+//@import 'components/dropdown';
+
+//@import 'pages/home';
+//@import 'pages/contact';
+
+//@import 'themes/theme';
+//@import 'themes/admin';
