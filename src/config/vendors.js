@@ -20,4 +20,17 @@ Vue.material.theme.registerAll({
     },
 });
 
+/* ============
+ * leancloud
+ * ============
+ *
+ * https://leancloud.cn/docs/leanstorage-started-js.html
+ */
+import AV from 'leancloud-storage'
+const appId = 'N72dGJaXBCfiQAqIWTq5uHid-gzGzoHsz';
+const appKey = '2Q9xOtIBMTQ39hwgbBjKptwy';
+AV.init({ appId, appKey });
+
+window.AV = AV;
+
 export default {}

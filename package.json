@@ -13,6 +13,7 @@
     "flexboxgrid": "^6.3.1",
     "jquery": "^3.1.1",
     "js-cookie": "^2.1.3",
+    "leancloud-storage": "^1.5.3",
     "loaders.css": "^0.1.2",
     "lodash": "^4.17.2",
     "material-design-icons": "^3.0.1",
