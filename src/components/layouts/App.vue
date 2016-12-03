@@ -42,22 +42,6 @@
         },
         watch: {},
         created(){
-            // 该语句应该只声明一次
-//            const location = AV.Object.extend('location');
-
-//            let obj = new location();
-
-//            testObject.set('testNumber', number);
-//            testObject.set('testString', string);
-//            testObject.set('testDate', date);
-//            testObject.set('testArray', array);
-//            testObject.set('testObject', object);
-//            testObject.set('testNull', null);
-//            testObject.save().then(function(testObject) {
-//                // 成功
-//            }, function(error) {
-//                // 失败
-//            });
             this.location();
         },
         methods: {
