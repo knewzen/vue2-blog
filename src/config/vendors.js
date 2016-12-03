@@ -15,9 +15,8 @@ Vue.use(VueMaterial);
 
 Vue.material.theme.registerAll({
     default: {
-        primary: 'cyan',
-        accent: 'white',
-        color: 'white'
+        primary: 'blue',
+        accent: 'pink'
     },
 });
 

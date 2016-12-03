@@ -1,17 +1,16 @@
-@import "base";
-@import "assets";
-
-
 //来源:http://www.w3cplus.com/preprocessor/sass-guidelin-part-4.html
 //https://sass-guidelin.es/#architecture
+
+@import 'base/reset';
+@import 'base/typography';
+
+@import "assets";
 
 @import 'abstracts';
 @import "helper";
 
 @import "vendors";
 
-@import 'base/reset';
-@import 'base/typography';
 
 //@import 'layout/navigation';
 //@import 'layout/grid';
