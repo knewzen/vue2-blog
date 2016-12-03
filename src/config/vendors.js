@@ -17,6 +17,7 @@ Vue.material.theme.registerAll({
     default: {
         primary: 'cyan',
         accent: 'white',
+        color: 'white'
     },
 });
 
