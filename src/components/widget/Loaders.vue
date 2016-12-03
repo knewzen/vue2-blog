@@ -1,5 +1,5 @@
 <template>
-    <div class="loader">
+    <div class="loader row center-xs middle-xs margin-center">
         <div :class="type">
             <div v-for="i in types[type]" :style="styles"></div>
         </div>
@@ -11,7 +11,7 @@
         props:{
             type: {
                 type: String,
-                default: 'ball-grid-pulse'
+                default: 'line-scale'
             },
             size: {
                 type: String,
@@ -23,6 +23,7 @@
             },
             color: {
                 type: String,
+                default: 'gray'
             }
         },
         data(){
@@ -71,25 +72,12 @@
 <style lang="scss" scoped>
     @import "~loaders.css/loaders.min.css";
     .loader{
-        background: #ed5565;
-        box-sizing: border-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex: 0 1 auto;
-        flex: 0 1 auto;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -ms-flex-positive: 1;
-        flex-grow: 1;
-        -ms-flex-negative: 0;
-        flex-shrink: 0;
-        -ms-flex-preferred-size: 25%;
-        flex-basis: 25%;
-        max-width: 25%;
-        height: 200px;
-        -ms-flex-align: center;
-        align-items: center;
-        -ms-flex-pack: center;
-        justify-content: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: 2147483647;
+        background: rgba(255,255,255, .8);
     }
 </style>

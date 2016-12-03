@@ -1,0 +1,19 @@
+/*
+ * 辅助 css 类
+ */
+.margin-center {
+    margin: 0 auto;
+}
+
+.fixed-bottom{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.fixed-top{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}

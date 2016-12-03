@@ -9,15 +9,11 @@ const vue_options = {
         css: 'vue-style-loader?sourceMap!css-loader?sourceMap',
         scss: 'vue-style-loader?sourceMap!css-loader?sourceMap!sass-loader?sourceMap',
     },
-    autoprefixer: {
-        browsers: [
-            'last 2 versions',
-            'Chrome >= 30',
-            'Firefox >= 30',
-            'ie >= 10',
-            'Safari >= 8'
-        ]
-    }
+    postcss: [
+        require('autoprefixer')({
+            browsers: ['last 2 versions']
+        }),
+    ]
 };
 
 module.exports = {
@@ -90,9 +86,9 @@ module.exports = {
             hash: true
         })
     ],
-    externals: {
-        'AMap': 'AMap'
-    },
+    // externals: {
+    //     'AMap': 'AMap'
+    // },
     devtool: '#cheap-module-eval-source-map',//cheap-module-eval-source-map | cheap-module-source-map | eval | eval-source-map
     devServer: {
         historyApiFallback: true,

@@ -23,4 +23,44 @@
  * http://google.github.io/material-design-icons/
  * https://material.io/icons/
  */
-@import '~material-design-icons/iconfont/material-icons.css';
+//@import '~material-design-icons/iconfont/material-icons.css';
+
+$icon-font-path: '~material-design-icons/iconfont/MaterialIcons-Regular';
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url('#{$icon-font-path}.eot');
+    src: url('#{$icon-font-path}.eot?#iefix') format('embedded-opentype'),
+    url('#{$icon-font-path}.woff2') format('woff2'),
+    url('#{$icon-font-path}.woff') format('woff'),
+    url('#{$icon-font-path}.ttf') format('truetype'),
+    url('#{$icon-font-path}.svg#fontawesomeregular') format('svg');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+}
+
+/* ============
+ * Animate.css
+ * ============
+ *
+ * https://daneden.github.io/animate.css
+ * https://github.com/daneden/animate.css
+ */
+@import '~animate.css/animate.min.css';

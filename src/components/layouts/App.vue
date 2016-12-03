@@ -1,23 +1,51 @@
 <template>
-    <router-view v-if="is_loaded"></router-view>
+    <div class="body" v-md-theme="md_theme">
+        <transition leave-active-class="animated fadeOut">
+            <loaders v-if="is_show_loading"></loaders>
+        </transition>
+        <template v-if="!is_show_loading">
+            <div class="fixed-top">
+                <md-toolbar class="md-dense">
+                    <md-button class="md-icon-button">
+                        <md-icon>menu</md-icon>
+                    </md-button>
+
+                    <h2 class="md-title" style="flex: 1">Vue Material</h2>
+
+                    <md-button class="md-icon-button">
+                        <md-icon>favorite</md-icon>
+                    </md-button>
+                </md-toolbar>
+            </div>
+            <router-view></router-view>
+            <div class="fixed-bottom">
+                <md-bottom-bar>
+                    <md-bottom-bar-item md-icon="history" md-active>Recents</md-bottom-bar-item>
+                    <md-bottom-bar-item md-icon="favorite">Favorites</md-bottom-bar-item>
+                    <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
+                </md-bottom-bar>
+            </div>
+        </template>
+    </div>
 </template>
 
 <script lang="babel">
-//    import AMap from 'AMap'
+    import Loaders from '../widget/Loaders.vue'
 
     export default {
+        components:{
+            Loaders
+        },
         data(){
             return {
-                is_loaded: true
+                md_theme: 'default',
+                is_show_loading: false
             }
         },
         watch:{
-            'is_loaded'(val){
-//                console.log(val);
-            }
         },
         created(){
-//            this.location();
+            this.location();
         },
         methods:{
             location(){
@@ -37,8 +65,11 @@
 //                geolocation.getCurrentPosition();
                     geolocation.watchPosition();
 
+                    let temp_position = null;
                     AMap.event.addListener(geolocation, 'complete', function (e) {
-                        console.log(e);
+                        self.is_show_loading = false;
+                        if(Object.is(temp_position, e.position)) return;
+                        temp_position = e.position;
                         geocoder.getAddress(e.position, function (status, result) {
                             switch (status){
                                 case 'error':
@@ -49,7 +80,6 @@
                                     break;
                                 default:
                                     console.log(result);
-                                    self.is_loaded = true;
                                     break;
                             }
                         });
@@ -63,6 +93,4 @@
     }
 </script>
 
-<style lang="scss">
-    @import "../../styles/main.scss";
-</style>
+<style lang="scss" src="../../styles/main.scss"></style>
