@@ -72,7 +72,7 @@
 <style lang="scss" scoped>
     @import "~loaders.css/loaders.min.css";
     .loader{
-        position: fixed;
+        position: absolute;
         left: 0;
         top: 0;
         min-width: 100%;

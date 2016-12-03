@@ -9,7 +9,7 @@
                     <md-button class="md-icon-button">
                         <md-icon>menu</md-icon>
                     </md-button>
-                    <div class="md-title" style="flex: 1">Vue Material</div>
+                    <div class="md-title col-xs">Vue Material</div>
                     <md-button class="md-icon-button">
                         <md-icon>favorite</md-icon>
                     </md-button>
@@ -37,7 +37,7 @@
         data(){
             return {
                 md_theme: 'default',
-                is_show_loading: false
+                is_show_loading: true,
             }
         },
         watch:{
