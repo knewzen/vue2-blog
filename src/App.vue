@@ -4,17 +4,15 @@
             <loaders v-if="is_show_loading"></loaders>
         </transition>
         <template v-if="!is_show_loading">
-            <div class="fixed-top">
-                <md-toolbar class="md-dense">
-                    <md-button class="md-icon-button">
-                        <md-icon>menu</md-icon>
-                    </md-button>
-                    <div class="md-title col-xs">Vue Material</div>
-                    <md-button class="md-icon-button">
-                        <md-icon>favorite</md-icon>
-                    </md-button>
-                </md-toolbar>
-            </div>
+            <md-toolbar class="md-dense">
+                <md-button class="md-icon-button">
+                    <md-icon>menu</md-icon>
+                </md-button>
+                <div class="md-title col-xs">Vue Material</div>
+                <md-button class="md-icon-button">
+                    <md-icon>favorite</md-icon>
+                </md-button>
+            </md-toolbar>
             <router-view></router-view>
             <div class="fixed-bottom">
                 <md-bottom-bar>
