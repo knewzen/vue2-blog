@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from './components/layouts/App.vue'
+import App from './App.vue'
 import Bootstrap from './config/bootstrap'
 import Vendors from './config/vendors'
 

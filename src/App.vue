@@ -28,7 +28,7 @@
 </template>
 
 <script lang="babel">
-    import Loaders from '../widget/Loaders.vue'
+    import Loaders from './components/widget/Loaders.vue'
 
     export default {
         components: {
@@ -85,6 +85,10 @@
                                     console.log("无数据返回，请换个关键字试试～～");
                                     break;
                                 default:
+                                    self.$store.commit('add', {
+                                        position: e.position,
+                                        address: result.regeocode
+                                    });
                                     console.log(result);
                                     break;
                             }
@@ -99,4 +103,4 @@
     }
 </script>
 
-<style lang="scss" src="../../assets/scss/main.scss"></style>
+<style lang="scss" src="./assets/scss/main.scss"></style>

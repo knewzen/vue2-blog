@@ -1,5 +1,5 @@
 <template>
-    <div class="loader row center-xs middle-xs margin-center">
+    <div class="loader row flex-items-xs-center flex-items-xs-middle">
         <div :class="type">
             <div v-for="i in types[type]" :style="styles"></div>
         </div>

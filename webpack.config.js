@@ -96,7 +96,7 @@ module.exports = {
         compress: true,
         contentBase: "./dist/",
         host: '0.0.0.0',
-        port: 8088
+        port: port
     },
 };
 

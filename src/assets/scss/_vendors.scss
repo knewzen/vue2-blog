@@ -1,22 +1,4 @@
 /* ============
- * normalize
- * ============
- *
- * https://github.com/necolas/normalize.css
- */
-@import '~normalize.css/normalize.css';
-
-/* ============
- * flexboxgrid
- * ============
- *
- * http://flexboxgrid.com/
- * https://github.com/kristoferjoseph/flexboxgrid
- */
-//@import '~flexboxgrid/dist/flexboxgrid.css';
-@import '~flexboxgrid/dist/flexboxgrid.min.css';
-
-/* ============
  * material design icons
  * ============
  *
@@ -64,3 +46,13 @@ $icon-font-path: '~material-design-icons/iconfont/MaterialIcons-Regular';
  * https://github.com/daneden/animate.css
  */
 @import '~animate.css/animate.min.css';
+
+/* ============
+ * bootstrap
+ * ============
+ *
+ * http://getbootstrap.com/
+ * https://v4-alpha.getbootstrap.com/
+ */
+@import "~bootstrap/scss/bootstrap-flex";
+@import "vendors_reset/bootstrap";
