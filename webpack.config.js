@@ -91,12 +91,13 @@ module.exports = {
     // },
     devtool: '#cheap-module-eval-source-map',//cheap-module-eval-source-map | cheap-module-source-map | eval | eval-source-map
     devServer: {
+        // https: true,
         historyApiFallback: true,
         noInfo: true,
         compress: true,
         contentBase: "./dist/",
         host: '0.0.0.0',
-        port: port
+        port: 5211, //port
     },
 };
 

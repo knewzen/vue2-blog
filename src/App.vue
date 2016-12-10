@@ -27,6 +27,7 @@
 
 <script lang="babel">
     import Loaders from './components/widget/Loaders.vue'
+    import isEqual from 'lodash/isEqual'
 
     export default {
         components: {
@@ -45,7 +46,7 @@
         methods: {
             location(){
                 let self = this;
-                AMap.service(['AMap.Geolocation', 'AMap.Geocoder'], function () {
+                AMap.service(['AMap.Geolocation'], ()=>{
                     let geolocation = new AMap.Geolocation({
                         enableHighAccuracy: true,//是否使用高精度定位，默认:true
                         timeout: 10000,          //超过10秒后停止定位，默认：无穷大
@@ -59,40 +60,17 @@
                         panToLocation: true,     //定位成功后将定位到的位置作为地图中心点，默认：true
                         zoomToAccuracy: true      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
                     });
-                    let geocoder = new AMap.Geocoder({
-                        radius: 1000,
-                        extensions: "base"
-                    });
-//                geolocation.getCurrentPosition();
+
+                    geolocation.getCurrentPosition();
                     geolocation.watchPosition();
 
-                    let temp_position = null;
-                    AMap.event.addListener(geolocation, 'complete', function (e) {
-                        self.is_show_loading = false;
-                        if (Object.is(temp_position, e.position)) {
-                            return;
-                        } else {
-                            temp_position = e.position;
+                    AMap.event.addListener(geolocation, 'complete', (e)=>{
+                        this.is_show_loading = false;
+                        if (isEqual(e.formattedAddress, this.$store.getters.current)){
+                            self.$store.commit('add', e);
                         }
-                        geocoder.getAddress(e.position, function (status, result) {
-                            switch (status) {
-                                case 'error':
-                                    console.log("服务请求出错啦！ ");
-                                    break;
-                                case 'no_data':
-                                    console.log("无数据返回，请换个关键字试试～～");
-                                    break;
-                                default:
-                                    self.$store.commit('add', {
-                                        position: e.position,
-                                        address: result.regeocode
-                                    });
-                                    console.log(result);
-                                    break;
-                            }
-                        });
                     });
-                    AMap.event.addListener(geolocation, 'error', function (err) {
+                    AMap.event.addListener(geolocation, 'error', (err)=>{
                         console.log(err);
                     });
                 });

@@ -3,19 +3,19 @@
  */
 export default {
     state: {
-        current: null,
         history: [],
     },
     mutations: {
         add (state, payload) {
-
-            if (typeof payload == 'object') {
-                const is_same = state.current && state.current.address.formattedAddress != payload.address.formattedAddress;
-                if(is_same || !state.current){
-                    state.current = payload;
-                    state.history.push(payload);
-                }
-            }
+            state.history.push(payload);
         },
+    },
+    getters: {
+        current(state){
+            if(state.history.length > 0){
+                return state.history[0];
+            }
+            return null
+        }
     }
 }
