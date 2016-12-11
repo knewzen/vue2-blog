@@ -4,30 +4,32 @@
             <loaders v-if="is_show_loading"></loaders>
         </transition>
         <template v-if="!is_show_loading">
+
             <md-toolbar class="md-dense">
                 <md-button class="md-icon-button">
                     <md-icon>menu</md-icon>
                 </md-button>
-                <div class="md-title col-xs">Vue Material</div>
+                <div class="md-title col-xs">{{ title }}</div>
                 <md-button class="md-icon-button">
                     <md-icon>favorite</md-icon>
                 </md-button>
             </md-toolbar>
-            <router-view></router-view>
-            <div class="fixed-bottom">
-                <md-bottom-bar>
-                    <md-bottom-bar-item md-icon="history" md-active>Recents</md-bottom-bar-item>
-                    <md-bottom-bar-item md-icon="favorite">Favorites</md-bottom-bar-item>
-                    <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
-                </md-bottom-bar>
-            </div>
+
+            <router-view style="height: calc(100vh - 3rem - 3.5rem);overflow-y: auto;"></router-view>
+
+            <md-bottom-bar>
+                <md-bottom-bar-item md-icon="history" md-active>Recents</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="favorite">Favorites</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
+            </md-bottom-bar>
+
         </template>
     </div>
 </template>
 
 <script lang="babel">
+    import { mapGetters } from 'vuex'
     import Loaders from './components/widget/Loaders.vue'
-    import isEqual from 'lodash/isEqual'
 
     export default {
         components: {
@@ -37,6 +39,22 @@
             return {
                 md_theme: 'default',
                 is_show_loading: true,
+            }
+        },
+        computed: {
+            ...mapGetters([
+                'current'
+            ]),
+            title(){
+                const current = this.$store.getters.current;
+                if(current.addressComponent){
+                    const addressComponent = current.addressComponent;
+                    if(addressComponent.building){
+                        return addressComponent.building;
+                    }
+                    return addressComponent.street + addressComponent.streetNumber
+                }
+                return '定位中……';
             }
         },
         watch: {},
@@ -65,8 +83,10 @@
                     geolocation.watchPosition();
 
                     AMap.event.addListener(geolocation, 'complete', (e)=>{
-                        this.is_show_loading = false;
-                        if (isEqual(e.formattedAddress, this.$store.getters.current)){
+                        if(this.is_show_loading) this.is_show_loading = false;
+
+                        if (e.formattedAddress != this.current.formattedAddress){
+                            console.log(e);
                             self.$store.commit('add', e);
                         }
                     });
