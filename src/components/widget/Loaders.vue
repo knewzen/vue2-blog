@@ -78,7 +78,7 @@
         margin: 0;
         min-width: 100vw;
         min-height: 100vh;
-        z-index: 999;//2147483647;
+        z-index: 999;/*2147483647;*/
         background: rgba(255,255,255, .8);
     }
 </style>

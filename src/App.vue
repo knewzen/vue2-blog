@@ -84,8 +84,7 @@
 
                     AMap.event.addListener(geolocation, 'complete', (e)=>{
                         if(this.is_show_loading) this.is_show_loading = false;
-
-                        if (e.formattedAddress != this.current.formattedAddress){
+                        if (e.formattedAddress && e.formattedAddress != this.current.formattedAddress){
                             console.log(e);
                             self.$store.commit('add', e);
                         }

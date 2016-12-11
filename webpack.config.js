@@ -6,14 +6,9 @@ const port = Math.floor(Math.random() * (65535 - 1024)) + 1024;
 
 const vue_options = {
     loaders: {
-        css: 'vue-style-loader?sourceMap!css-loader?sourceMap',
-        scss: 'vue-style-loader?sourceMap!css-loader?sourceMap!sass-loader?sourceMap',
+        css: 'vue-style-loader?sourceMap!css-loader?sourceMap!postcss-loader',
+        scss: 'vue-style-loader?sourceMap!css-loader?sourceMap!sass-loader?sourceMap!postcss-loader',
     },
-    postcss: [
-        require('autoprefixer')({
-            browsers: ['last 2 versions']
-        }),
-    ]
 };
 
 module.exports = {
@@ -66,7 +61,7 @@ module.exports = {
     },
     plugins: [
         // new webpack.LoaderOptionsPlugin({
-        //     vue: vue_options
+            // vue: vue_options
         // }),
         // new webpack.ProvidePlugin({
         //     $: 'jquery',
