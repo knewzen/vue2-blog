@@ -61,7 +61,7 @@ module.exports = {
     },
     plugins: [
         // new webpack.LoaderOptionsPlugin({
-            // vue: vue_options
+        // vue: vue_options
         // }),
         // new webpack.ProvidePlugin({
         //     $: 'jquery',
@@ -84,6 +84,9 @@ module.exports = {
     // externals: {
     //     'AMap': 'AMap'
     // },
+    performance: {
+        hints: false, //关闭警告
+    },
     devtool: '#cheap-module-eval-source-map',//cheap-module-eval-source-map | cheap-module-source-map | eval | eval-source-map
     devServer: {
         // https: true,
