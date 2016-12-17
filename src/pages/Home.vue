@@ -61,6 +61,7 @@
         transform: translateY(30px);
     }
     .list-complete-leave-active {
+        width: 100%;
         position: absolute;
     }
 </style>

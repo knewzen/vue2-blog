@@ -1,5 +1,5 @@
 <template>
-    <div class="body" v-md-theme="md_theme">
+    <div class="body">
         <transition leave-active-class="animated fadeOut">
             <loaders v-if="is_show_loading"></loaders>
         </transition>
@@ -37,7 +37,6 @@
         },
         data(){
             return {
-                md_theme: 'default',
                 is_show_loading: true,
             }
         },

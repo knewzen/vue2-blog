@@ -5,7 +5,8 @@ module.exports = {
     plugins: [
         require('autoprefixer')({
             browsers: [
-                // 'last 2 versions',
+                'last 2 versions',
+                /*
                 'ie >= 8',
                 'ie_mob >= 10',
                 'ff >= 26',
@@ -15,7 +16,8 @@ module.exports = {
                 'ios >= 5',
                 'android >= 2.3',
                 'bb >= 10',
+                */
             ]
         }),
     ]
-}
+};

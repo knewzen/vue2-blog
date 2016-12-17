@@ -8,12 +8,12 @@ import Vue from 'vue'
  *
  * https://github.com/marcosmoura/vue-material
  */
-import VueMaterial from 'vue-material'
-import 'vue-material/dist/vue-material.css'
+const VueMaterial = require('vue-material/dist/vue-material');
+require('vue-material/dist/vue-material.css');
 
 Vue.use(VueMaterial);
 
-Vue.material.theme.registerAll({
+Vue.material.registerTheme({
     default: {
         primary: 'blue',
         accent: 'pink',
@@ -21,7 +21,7 @@ Vue.material.theme.registerAll({
         background: 'white'
     },
 });
-
+Vue.material.setCurrentTheme('default');
 /* ============
  * leancloud
  * ============
