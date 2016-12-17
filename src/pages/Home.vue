@@ -2,7 +2,7 @@
     <div>
         <md-list class="md-double-line md-dense">
             <transition-group name="list-complete">
-                <md-list-item v-for="(i, index) in $store.state.Location.history" :key="i" class="list-complete-item" @click="openDialog('alert', i)">
+                <md-list-item v-for="(i, index) in Location.history" :key="i" class="list-complete-item" @click="openDialog('alert', i)">
                     <md-icon class="md-primary">my_location</md-icon>
                     <div class="md-list-text-container">
                         <span>{{ i.formattedAddress }}</span>
@@ -23,7 +23,7 @@
 </template>
 
 <script lang="babel">
-    import { mapMutations } from 'vuex'
+    import { mapMutations, mapState } from 'vuex'
 
     export default {
         components: {
@@ -34,6 +34,9 @@
             }
         },
         computed:{
+            ...mapState([
+                'Location'
+            ])
         },
         created(){
         },

@@ -1,9 +1,11 @@
 <template>
     <div class="body">
         <transition leave-active-class="animated fadeOut">
-            <loaders v-if="is_show_loading"></loaders>
+            <div v-if="is_show_loading" class="loading">
+                <md-spinner md-indeterminate></md-spinner>
+            </div>
         </transition>
-        <template v-if="!is_show_loading">
+        <template>
 
             <md-toolbar class="md-dense">
                 <md-button class="md-icon-button">
@@ -84,7 +86,6 @@
                     AMap.event.addListener(geolocation, 'complete', (e)=>{
                         if(this.is_show_loading) this.is_show_loading = false;
                         if (e.formattedAddress && e.formattedAddress != this.current.formattedAddress){
-                            console.log(e);
                             self.$store.commit('add', e);
                         }
                     });

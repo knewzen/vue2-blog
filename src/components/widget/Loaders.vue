@@ -1,5 +1,5 @@
 <template>
-    <div class="loader row flex-items-xs-center flex-items-xs-middle">
+    <div class="loader">
         <div :class="type">
             <div v-for="i in types[type]" :style="styles"></div>
         </div>
@@ -76,9 +76,13 @@
         left: 0;
         top: 0;
         margin: 0;
+        padding: 0;
         min-width: 100vw;
         min-height: 100vh;
         z-index: 999;/*2147483647;*/
         background: rgba(255,255,255, .8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>

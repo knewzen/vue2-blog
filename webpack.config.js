@@ -6,8 +6,8 @@ const port = Math.floor(Math.random() * (65535 - 1024)) + 1024;
 
 const vue_options = {
     loaders: {
-        css: 'vue-style-loader?sourceMap!css-loader?sourceMap!postcss-loader',
-        scss: 'vue-style-loader?sourceMap!css-loader?sourceMap!sass-loader?sourceMap!postcss-loader',
+        css: 'vue-style-loader?sourceMap!css-loader?sourceMap!postcss-loader?sourceMap',
+        scss: 'vue-style-loader?sourceMap!css-loader?sourceMap!postcss-loader?sourceMap!sass-loader?sourceMap',
     },
 };
 
