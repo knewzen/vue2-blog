@@ -2,10 +2,12 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 const port = Math.floor(Math.random() * (65535 - 1024)) + 1024;
+const is_production = process.env.NODE_ENV === 'production';
 
 let vue_options = {};
-if (process.env.NODE_ENV === 'production') {
+if (is_production) {
     vue_options.loaders = {
         css: ExtractTextPlugin.extract({
             loader: 'css-loader?sourceMap!postcss-loader?sourceMap',
@@ -111,7 +113,7 @@ module.exports = {
     },
 };
 
-if (process.env.NODE_ENV === 'production') {
+if (is_production) {
     // module.exports.devtool = '#source-map';
     // module.exports.devtool = '#cheap-module-source-map';
     module.exports.devtool = false;
