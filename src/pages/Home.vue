@@ -6,7 +6,10 @@
                     <md-icon class="md-primary">my_location</md-icon>
                     <div class="md-list-text-container">
                         <span>{{ i.formattedAddress }}</span>
-                        <span>精度范围{{ i.accuracy }}米；定位来源于{{ i.location_type }}；</span>
+                        <span>
+                            <span v-if="i.accuracy">精度范围{{ i.accuracy }}米；</span>
+                            <span v-if="i.location_type">定位来源于{{ i.location_type }}；</span>
+                        </span>
                     </div>
                     <md-button class="md-icon-button md-list-action" @click="remove(index)">
                         <md-icon class="md-primary">delete</md-icon>

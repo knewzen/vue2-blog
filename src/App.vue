@@ -1,12 +1,11 @@
 <template>
-    <div class="body">
+    <div class="app">
         <transition leave-active-class="animated fadeOut">
             <div v-if="is_show_loading" class="loading">
                 <md-spinner md-indeterminate></md-spinner>
             </div>
         </transition>
-        <template>
-
+        <div class="fixed-top">
             <md-toolbar class="md-dense">
                 <md-button class="md-icon-button">
                     <md-icon>menu</md-icon>
@@ -16,16 +15,17 @@
                     <md-icon>favorite</md-icon>
                 </md-button>
             </md-toolbar>
-
-            <router-view style="height: calc(100vh - 3rem - 3.5rem);overflow-y: auto;"></router-view>
-
+        </div>
+        <transition leave-active-class="animated fadeOut">
+            <router-view class="wrapper-container"></router-view>
+        </transition>
+        <div class="fixed-bottom">
             <md-bottom-bar>
                 <md-bottom-bar-item md-icon="history" md-active>Recents</md-bottom-bar-item>
                 <md-bottom-bar-item md-icon="favorite">Favorites</md-bottom-bar-item>
                 <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
             </md-bottom-bar>
-
-        </template>
+        </div>
     </div>
 </template>
 
