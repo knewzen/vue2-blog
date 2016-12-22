@@ -22,6 +22,7 @@ Vue.material.registerTheme({
     },
 });
 Vue.material.setCurrentTheme('default');
+
 /* ============
  * leancloud
  * ============
@@ -34,5 +35,7 @@ Vue.material.setCurrentTheme('default');
 // AV.init({ appId, appKey });
 //
 // window.AV = AV;
+
+import '../assets/scss/main.scss';
 
 export default {}

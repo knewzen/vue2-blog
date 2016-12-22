@@ -4,12 +4,24 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const port = Math.floor(Math.random() * (65535 - 1024)) + 1024;
 
-const vue_options = {
-    loaders: {
+let vue_options = {};
+if (process.env.NODE_ENV === 'production') {
+    vue_options.loaders = {
+        css: ExtractTextPlugin.extract({
+            loader: 'css-loader?sourceMap!postcss-loader?sourceMap',
+            fallbackLoader: 'vue-style-loader?sourceMap'
+        }),
+        scss: ExtractTextPlugin.extract({
+            loader: 'css-loader?sourceMap!postcss-loader?sourceMap!sass-loader?sourceMap',
+            fallbackLoader: 'vue-style-loader?sourceMap'
+        }),
+    };
+}else{
+    vue_options.loaders = {
         css: 'vue-style-loader?sourceMap!css-loader?sourceMap!postcss-loader?sourceMap',
         scss: 'vue-style-loader?sourceMap!css-loader?sourceMap!postcss-loader?sourceMap!sass-loader?sourceMap',
-    },
-};
+    };
+}
 
 module.exports = {
     entry: './src/main.js',
@@ -100,19 +112,10 @@ module.exports = {
 };
 
 if (process.env.NODE_ENV === 'production') {
-    //module.exports.devtool = '#source-map'
-    module.exports.devtool = '#eval';
+    // module.exports.devtool = '#source-map';
+    // module.exports.devtool = '#cheap-module-source-map';
+    module.exports.devtool = false;
     //http://vue-loader.vuejs.org/en/workflow/production.html
-    vue_options.loaders = {
-        css: ExtractTextPlugin.extract({
-            loader: 'css-loader?sourceMap',
-            fallbackLoader: 'vue-style-loader?sourceMap'
-        }),
-        scss: ExtractTextPlugin.extract({
-            loader: 'css-loader?sourceMap!sass-loader?sourceMap',
-            fallbackLoader: 'vue-style-loader?sourceMap'
-        }),
-    };
     module.exports.plugins = (module.exports.plugins || []).concat([
         new ExtractTextPlugin('app.css'),
         new webpack.DefinePlugin({

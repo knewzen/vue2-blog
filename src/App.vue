@@ -98,4 +98,24 @@
     }
 </script>
 
-<style lang="scss" src="./assets/scss/main.scss"></style>
+<style lang="scss">
+    .app {
+        .fixed-top, .fixed-bottom {
+            position: fixed;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .fixed-top {
+            top: 0;
+        }
+
+        .fixed-bottom {
+            bottom: 0;
+        }
+
+        .wrapper-container {
+            padding: 48px 0 56px 0;
+        }
+    }
+</style>
