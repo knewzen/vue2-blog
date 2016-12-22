@@ -40,7 +40,7 @@
     "sass-loader": "^4.0.0",
     "vue-loader": "^10.0.0",
     "vue-template-compiler": "^2.1.0",
-    "webpack": "^2.1.0-beta",
-    "webpack-dev-server": "^2.1.0-beta"
+    "webpack": "^2.2.0-rc",
+    "webpack-dev-server": "^2.2.0-rc"
   }
 }
