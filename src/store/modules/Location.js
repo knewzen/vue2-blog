@@ -7,7 +7,7 @@ export default {
     },
     mutations: {
         add (state, payload) {
-            state.history.push(payload);
+            state.history.splice(0, 0, payload);
         },
         remove(state, payload){
             state.history.splice(payload, 1)
@@ -16,7 +16,7 @@ export default {
     getters: {
         current(state){
             if(state.history.length > 0){
-                return state.history[state.history.length - 1];
+                return state.history[0];
             }
             return {}
         }
