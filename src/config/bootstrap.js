@@ -50,15 +50,8 @@ const router = new VueRouter(require('./router').default);
  * https://github.com/robinvdvleuten/vuex-persistedstate
  */
 import Vuex from 'vuex'
-import VuexPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex);
-const store = new Vuex.Store({
-    ...require('../store').default,
-    plugins: [
-        VuexPersistedState()
-    ]
-});
-
+const store = new Vuex.Store(require('../store').default);
 
 export default {router, store}
