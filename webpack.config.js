@@ -52,14 +52,14 @@ module.exports = {
                 test: /\.(png|jpg|gif|svg)$/,
                 loader: 'file-loader',
                 options: {
-                    name: 'images/[name]-[hash:3].[ext]'
+                    name: 'images/[name]-[hash:5].[ext]'
                 }
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
                 loader: 'file-loader',
                 query: {
-                    name: 'fonts/[name].[ext]?[hash:3]'
+                    name: 'fonts/[name].[ext]'
                 }
             }
         ]
