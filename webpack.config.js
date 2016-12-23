@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const port = Math.floor(Math.random() * (65535 - 1024)) + 1024;
 const is_production = process.env.NODE_ENV === 'production';
 
 let vue_options = {};
@@ -70,7 +69,6 @@ module.exports = {
             'vue-router': 'vue-router/dist/vue-router.min.js',
             'vue-resource': 'vue-resource/dist/vue-resource.min.js',
             'vuex': 'vuex/dist/vuex.min.js',
-            'jquery': 'jquery/dist/jquery.min.js',
         }
     },
     plugins: [
@@ -109,7 +107,7 @@ module.exports = {
         compress: true,
         contentBase: "./dist/",
         host: '0.0.0.0',
-        port: 5211, //port
+        port: 5211, //Math.floor(Math.random() * (65535 - 1024)) + 1024,
     },
 };
 
