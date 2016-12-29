@@ -10,7 +10,9 @@
                 <md-button class="md-icon-button">
                     <md-icon>menu</md-icon>
                 </md-button>
-                <div class="md-title col-xs">{{ title }}</div>
+                <md-layout class="md-title">
+                    {{ title }}
+                </md-layout>
                 <md-button class="md-icon-button">
                     <md-icon>favorite</md-icon>
                 </md-button>
