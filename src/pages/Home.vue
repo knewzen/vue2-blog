@@ -1,7 +1,7 @@
 <template>
     <div>
         <md-list class="md-double-line md-dense">
-            <transition-group name="list-complete">
+            <transition-group name="list-complete" tag="div">
                 <md-list-item v-for="(i, index) in Location.history" :key="i" class="list-complete-item" @click="openDialog('alert', i)">
                     <md-icon class="md-primary">my_location</md-icon>
                     <div class="md-list-text-container">
