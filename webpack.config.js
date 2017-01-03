@@ -17,7 +17,7 @@ if (is_production) {
             fallbackLoader: 'vue-style-loader?sourceMap'
         }),
     };
-}else{
+} else {
     vue_options.loaders = {
         css: 'vue-style-loader?sourceMap!css-loader?sourceMap!postcss-loader?sourceMap',
         scss: 'vue-style-loader?sourceMap!css-loader?sourceMap!postcss-loader?sourceMap!sass-loader?sourceMap',
@@ -77,12 +77,12 @@ module.exports = {
     },
     plugins: [
         // new webpack.LoaderOptionsPlugin({
-        // vue: vue_options
+            // vue: vue_options
         // }),
         // new webpack.ProvidePlugin({
-        //     $: 'jquery',
-        //     jQuery: 'jquery',
-        //     "window.jQuery": 'jquery',
+            // $: 'jquery',
+            // jQuery: 'jquery',
+            // "window.jQuery": 'jquery',
         // }),
         new HtmlWebpackPlugin({
             title: 'vue2',
@@ -97,9 +97,9 @@ module.exports = {
             hash: true
         })
     ],
-    // externals: {
-    //     'AMap': 'AMap'
-    // },
+    externals: {//扩展 window 对象
+        // 'AMap': 'AMap'
+    },
     performance: {
         hints: false, //关闭警告
     },
