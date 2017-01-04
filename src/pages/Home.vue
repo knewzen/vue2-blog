@@ -1,8 +1,8 @@
 <template>
     <div>
         <md-list class="md-double-line md-dense">
-            <transition-group name="list-complete" tag="div">
-                <md-list-item v-for="(i, index) in Location.history" :key="i" class="list-complete-item" @click="openDialog('alert', i)">
+            <transition-group name="tg" tag="div">
+                <md-list-item v-for="(i, index) in Location.history" :key="i" class="tg-item" @click="openDialog('alert', i)">
                     <md-icon class="md-primary">my_location</md-icon>
                     <div class="md-list-text-container">
                         <span>{{ i.formattedAddress }}</span>
@@ -59,14 +59,14 @@
 </script>
 
 <style lang="scss" scoped>
-    .list-complete-item {
+    .tg-item {
         transition: all 1s;
     }
-    .list-complete-enter, .list-complete-leave-active {
+    .tg-enter, .tg-leave-active {
         opacity: 0;
         transform: translateY(30px);
     }
-    .list-complete-leave-active {
+    .tg-leave-active {
         width: 100%;
         position: absolute;
     }

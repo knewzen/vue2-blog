@@ -18,7 +18,7 @@
                 </md-button>
             </md-toolbar>
         </div>
-        <transition leave-active-class="animated fadeOut">
+        <transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
             <router-view class="wrapper-container"></router-view>
         </transition>
         <div class="fixed-bottom">
