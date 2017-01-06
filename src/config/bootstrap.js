@@ -23,7 +23,7 @@ Vue.config.devtools = true;
 import Vuex from 'vuex'
 
 Vue.use(Vuex);
-const store = new Vuex.Store(require('../store').default);
+const store = new Vuex.Store(require('../store'));
 
 /* ============
  * Vue Router
@@ -37,7 +37,7 @@ const store = new Vuex.Store(require('../store').default);
 import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
-const router = new VueRouter(require('./router').default);
+const router = new VueRouter(require('./router'));
 
 /* ============
  * Vue Resource
