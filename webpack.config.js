@@ -5,27 +5,19 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const is_production = process.env.NODE_ENV === 'production';
 
-let vue_options = {};
-if (is_production) {
-    vue_options.loaders = {
-        css: ExtractTextPlugin.extract({
-            loader: 'css-loader?sourceMap!postcss-loader?sourceMap',
-            fallbackLoader: 'vue-style-loader?sourceMap'
-        }),
-        scss: ExtractTextPlugin.extract({
-            loader: 'css-loader?sourceMap!postcss-loader?sourceMap!sass-loader?sourceMap',
-            fallbackLoader: 'vue-style-loader?sourceMap'
-        }),
-    };
-} else {
-    vue_options.loaders = {
-        css: 'vue-style-loader?sourceMap!css-loader?sourceMap!postcss-loader?sourceMap',
-        scss: 'vue-style-loader?sourceMap!css-loader?sourceMap!postcss-loader?sourceMap!sass-loader?sourceMap',
-    };
-}
-
 module.exports = {
-    entry: './src/main.js',
+    entry: {
+        app: [
+            './src/main.js',
+        ],
+        vendor: [
+            'vue',
+            'vue-router',
+            'vue-resource',
+            'vuex',
+            'vue-material'
+        ]
+    },
     output: {
         path: path.resolve(__dirname, './dist'),
         publicPath: '',
@@ -37,11 +29,19 @@ module.exports = {
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
-                options: vue_options
+                options: {
+                    loaders: {
+                        css: 'vue-style-loader?sourceMap!css-loader?sourceMap!postcss-loader?sourceMap',
+                        scss: 'vue-style-loader?sourceMap!css-loader?sourceMap!postcss-loader?sourceMap!sass-loader?sourceMap',
+                    }
+                }
             },
             {
                 test: /\.(css|scss|sass)$/,
-                loader: vue_options.loaders.scss
+                loader: ExtractTextPlugin.extract({
+                    loader: 'css-loader?sourceMap!postcss-loader?sourceMap!resolve-url-loader!sass-loader?sourceMap',
+                    fallbackLoader: 'style-loader?sourceMap'
+                })
             },
             {
                 test: /\.js$/,
@@ -76,14 +76,16 @@ module.exports = {
         ]
     },
     plugins: [
-        // new webpack.LoaderOptionsPlugin({
-            // vue: vue_options
-        // }),
+        // new webpack.LoaderOptionsPlugin({}),
         // new webpack.ProvidePlugin({
-            // $: 'jquery',
-            // jQuery: 'jquery',
-            // "window.jQuery": 'jquery',
+        // $: 'jquery',
+        // jQuery: 'jquery',
+        // "window.jQuery": 'jquery',
         // }),
+        new ExtractTextPlugin('app.css'),
+        new webpack.optimize.CommonsChunkPlugin({
+            names: ['vendor', 'manifest']
+        }),
         new HtmlWebpackPlugin({
             title: 'vue2',
             template: './src/index.html',
@@ -111,7 +113,7 @@ module.exports = {
         compress: true,
         contentBase: "./dist/",
         host: '0.0.0.0',
-        port: 5211, //Math.floor(Math.random() * (65535 - 1024)) + 1024,
+        port: 3000, //Math.floor(Math.random() * (65535 - 1024)) + 1024,
     },
 };
 
@@ -121,7 +123,6 @@ if (is_production) {
     module.exports.devtool = false;
     //http://vue-loader.vuejs.org/en/workflow/production.html
     module.exports.plugins = (module.exports.plugins || []).concat([
-        new ExtractTextPlugin('app.css'),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: '"production"'
