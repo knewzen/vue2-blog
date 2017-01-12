@@ -50,7 +50,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|gif|svg)$/,
-                loader: 'file-loader',
+                loader: 'url-loader?limit=8192',
                 options: {
                     name: 'images/[name]-[hash:5].[ext]'
                 }
