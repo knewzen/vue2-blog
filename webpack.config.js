@@ -86,6 +86,7 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             names: ['vendor', 'manifest']
         }),
+        //new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
         new HtmlWebpackPlugin({
             title: 'vue2',
             template: './src/index.html',
