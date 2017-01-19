@@ -1,3 +1,18 @@
+
+/* ============
+ * axios
+ * ============
+ *
+ * Promise based HTTP client for the browser and node.js
+ *
+ * https://github.com/mzabriskie/axios
+ */
+window.axios = require('axios');
+
+window.axios.defaults.headers.common = {
+    'X-Requested-With': 'XMLHttpRequest',
+};
+
 /* ============
  * Vue
  * ============
@@ -38,20 +53,5 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 const router = new VueRouter(require('./router'));
-
-/* ============
- * Vue Resource
- * ============
- *
- * Vue Resource provides services for making web requests and handle
- * responses using a XMLHttpRequest or JSONP.
- *
- * https://github.com/vuejs/vue-resource/tree/master/docs
- */
-import VueResource from 'vue-resource'
-
-Vue.use(VueResource);
-// Vue.http.options.root = '';
-// Vue.http.headers.common['X-CSRF-TOKEN'] = 'Basic YXBpOnBhc3N3b3Jk';
 
 export default {router, store}

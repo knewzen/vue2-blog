@@ -13,9 +13,9 @@ module.exports = {
         vendor: [
             'vue',
             'vue-router',
-            'vue-resource',
             'vuex',
-            'vue-material'
+            'vue-material',
+            'axios'
         ]
     },
     output: {
@@ -68,8 +68,8 @@ module.exports = {
         alias: {
             'vue': 'vue/dist/vue.min.js',
             'vue-router': 'vue-router/dist/vue-router.min.js',
-            'vue-resource': 'vue-resource/dist/vue-resource.min.js',
             'vuex': 'vuex/dist/vuex.min.js',
+            'axios': 'axios/dist/axios.min.js',
         },
         modules: [
             path.resolve(__dirname, 'node_modules')
