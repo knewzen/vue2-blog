@@ -6,7 +6,7 @@
         <md-layout class="md-title">
             管理系统
         </md-layout>
-        <md-button>登陆</md-button>
+        <router-link to="/auth/login" tag="md-button">登陆</router-link>
     </md-toolbar>
 </template>
 
