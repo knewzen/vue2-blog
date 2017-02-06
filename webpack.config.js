@@ -39,8 +39,8 @@ module.exports = {
             {
                 test: /\.(css|scss|sass)$/,
                 loader: ExtractTextPlugin.extract({
-                    loader: 'css-loader?sourceMap!postcss-loader?sourceMap!resolve-url-loader!sass-loader?sourceMap',
-                    fallbackLoader: 'style-loader?sourceMap'
+                    use: 'css-loader?sourceMap!postcss-loader?sourceMap!resolve-url-loader!sass-loader?sourceMap',
+                    fallback: 'style-loader?sourceMap'
                 })
             },
             {
@@ -52,14 +52,16 @@ module.exports = {
                 test: /\.(png|jpg|gif|svg)$/,
                 loader: 'url-loader?limit=8192',
                 options: {
-                    name: 'images/[name]-[hash:5].[ext]'
+                    name: 'images/[name]-[hash:5].[ext]',
+                    publicPath: '../'
                 }
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
                 loader: 'file-loader',
                 query: {
-                    name: 'fonts/[name].[ext]'
+                    name: 'fonts/[name].[ext]',
+                    publicPath: '../'
                 }
             }
         ]
@@ -82,7 +84,7 @@ module.exports = {
         // jQuery: 'jquery',
         // "window.jQuery": 'jquery',
         // }),
-        new ExtractTextPlugin('app.css'),
+        new ExtractTextPlugin('css/app.css'),
         new webpack.optimize.CommonsChunkPlugin({
             names: ['vendor', 'manifest']
         }),
